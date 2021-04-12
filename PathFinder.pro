@@ -9,10 +9,15 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    PathFinder.cpp \
+    cell.cpp \
+    draw_map.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    cell.h \
+    draw_map.h \
     mainwindow.h
 
 FORMS += \
