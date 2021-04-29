@@ -18,6 +18,7 @@ SOURCES += \
 HEADERS += \
     cell.h \
     draw_map.h \
+    functions.h \
     mainwindow.h
 
 FORMS += \

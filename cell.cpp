@@ -1,4 +1,4 @@
-#include "cell.h"
+#include "functions.h"
 
 Cell::Cell()
 {
@@ -11,6 +11,7 @@ void Cell::Set_all(int x, int y, bool status, int H, int W, int cID)
     Cell::cell_y = y;
     Cell::cell_status = status;
     Cell::ID = cID;
+
     if (!status)
     {
         Cell::way_left = false;
@@ -37,6 +38,11 @@ void Cell::Set_all(int x, int y, bool status, int H, int W, int cID)
             Cell::way_right = false;
         }
     }
+
+    /*QMessageBox::information(NULL,"info","x = " + QString::number(x) + " " + "y = " + QString::number(y) + "\n" +
+                             "status = " + QString::number(status) + " " + "ID = " + QString::number(cID) + "\n" +
+                             "l = " + QString::number(Cell::way_left) + " " + "r = " + QString::number(Cell::way_right) + "\n" +
+                             "u = " + QString::number(Cell::way_up) + " " + "d = " + QString::number(Cell::way_down));*/
 }
 	
 int Cell::Get_cell_x()
