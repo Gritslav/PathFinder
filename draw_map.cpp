@@ -197,6 +197,7 @@ void Draw_map::slotAlarmTimer()
 
                 if (Draw_map::Get_Path()[i-1] == Draw_map::Get_Path()[i] - 1)
 				{
+
                     group->addToGroup(scene->addLine(Draw_map::Cell_Size*(Draw_map::Get_Path()[i]%Draw_map::W_main),
                                                       Draw_map::Cell_Size*(Draw_map::Get_Path()[i]/Draw_map::W_main) + Draw_map::Cell_Size/2,
                                                       Draw_map::Cell_Size*(Draw_map::Get_Path()[i]%Draw_map::W_main) + Draw_map::Cell_Size/2,
@@ -385,7 +386,8 @@ void Draw_map::mousePressEvent(QMouseEvent *event)
     {
 
         Draw_map::SetFirstClick(true);
-        Draw_map::SetACoord(event->pos().x(), event->pos().y());
+
+        Draw_map::SetACoord(Draw_map::mapToScene(event->pos()).x(),Draw_map::mapToScene(event->pos()).y());
 
 
 
@@ -394,15 +396,14 @@ void Draw_map::mousePressEvent(QMouseEvent *event)
         Draw_map::Set_new_draw(true);
         Draw_map::SetSecondClick(true);
 
-        Draw_map::SetBCoord(event->pos().x(), event->pos().y());
-
+        Draw_map::SetBCoord(Draw_map::mapToScene(event->pos()).x(),Draw_map::mapToScene(event->pos()).y());
 
         timer->start(10);
     } else if ((Draw_map::GetFirstClick())&&(Draw_map::GetSecondClick()))
     {
          Draw_map::SetSecondClick(false);
          Draw_map::Set_new_draw(true);
-         Draw_map::SetACoord(event->pos().x(), event->pos().y());
+         Draw_map::SetACoord(Draw_map::mapToScene(event->pos()).x(),Draw_map::mapToScene(event->pos()).y());
     }
 }
 /*
